@@ -3,7 +3,7 @@ var express = require("express"),
   bodyParser = require("body-parser"),
   mongoose = require("mongoose"),
   Campground = require("./models/campground"),
-  Comment = require("./models/comment"),
+  Comment = require("./models/comment.js"),
   seedDB = require("./seeds");
 seedDB();
 mongoose
@@ -13,11 +13,7 @@ mongoose
   })
   .then(() => console.log("Connected to DB!"))
   .catch((error) => console.log(error.message));
-// Works
-MyModel.findOne(function (error, result) {
-  /* ... */
-});
-
+app.set("view engine", "ejs");
 app.get("/", function (req, res) {
   res.render("landing");
 });
