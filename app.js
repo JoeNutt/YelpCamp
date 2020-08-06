@@ -6,8 +6,13 @@ var express = require("express"),
   LocalStrategy = require("passport-local"),
   Campground = require("./models/campground"),
   Comment = require("./models/comment.js"),
+  User = require("./models/user"),
   seedDB = require("./seeds");
 seedDB();
+var commentRoutes = require("./routes/comments"),
+  campgroundRoutes = require("./routes/campgrounds"),
+  indexRoutes = require("./routes/index");
+  
 mongoose
   .connect("mongodb://localhost:27017/yelp_camp", {
     useNewUrlParser: true,
