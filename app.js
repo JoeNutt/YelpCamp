@@ -22,9 +22,6 @@ mongoose
   .catch((error) => console.log(error.message));
 
 app.set("view engine", "ejs");
-app.get("/", function (req, res) {
-  res.render("landing");
-});
 
 // PASSPORT CONFIGURATION
 app.use(
