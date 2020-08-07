@@ -25,9 +25,9 @@ router.post("/", isLoggedIn, function (req, res) {
 		id: req.user._id,
 		username: req.user.username,
 	};
-	var desc = req.body.description;
+	var description = req.body.description;
 
-	var newCampground = { name, image, desc, author };
+	var newCampground = { name, image, description, author };
 	// Create a new campground and save to DB
 	Campground.create(newCampground, function (err, newlyCreated) {
 		if (err) {
