@@ -4,9 +4,6 @@ var passport = require("passport");
 var User = require("../models/user");
 
 //root route
-router.get("/", function (req, res) {
-  res.render("landing");
-});
 
 // show register form
 router.get("/register", function (req, res) {
@@ -21,6 +18,7 @@ router.post("/register", function (req, res) {
       console.log(err);
       return res.render("register");
     }
+    app.use(bodyParser.urlencoded({ extended: true }));
     passport.authenticate("local")(req, res, function () {
       res.redirect("/campgrounds");
     });
