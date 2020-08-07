@@ -22,7 +22,7 @@ mongoose
   .catch((error) => console.log(error.message));
 
 app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({ extended: true }));
+
 // PASSPORT CONFIGURATION
 app.use(
   require("express-session")({
