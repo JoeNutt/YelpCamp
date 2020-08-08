@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var Campground = require("../models/campground");
+const { Route } = require("express");
 
 //INDEX - show all campgrounds
 router.get("/", function (req, res) {
@@ -68,6 +69,7 @@ router.get("/:id/edit", function (req, res) {
     }
   });
 });
+// UPDATE CAMPGROUND ROUTE
 router.put("/:id", (req, res) => {
   // find and update the correct campground
   Campground.findByIdAndUpdate(req.params.id, req.body.campground, function (
@@ -81,7 +83,17 @@ router.put("/:id", (req, res) => {
     }
   });
 });
-// UPDATE CAMPGROUND ROUTE
+
+// DESTORY ROUTE
+router.delete("/:id", (req, res) => {
+  Campground.findByIdAndRemove(req.params.id, function (err) {
+    if (err) {
+      res.redirect("/campgrounds");
+    } else {
+      res.redirect("/campgrounds");
+    }
+  });
+});
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
