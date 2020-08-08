@@ -6,7 +6,7 @@
         <h3 class="mb-4">Edit <%= campground.name %></h3>
         <div class="col-8 m-auto">
           <form
-            action="/campgrounds/<%= campground._id %>/edit?_method=PUT "
+            action="/campgrounds/<%= campground._id %>/?_method=PUT "
             method="POST"
           >
             <div class="form-group">
@@ -14,7 +14,7 @@
                 class="form-control"
                 type="text"
                 value="<%= campground.name %> "
-                name="name"
+                name="campground[name]"
               />
             </div>
             <div class="form-group">
@@ -22,7 +22,7 @@
                 class="form-control"
                 type="text"
                 value="<%= campground.image %> "
-                name="image"
+                name="campground[image]"
               />
             </div>
             <div class="form-group">
@@ -30,7 +30,7 @@
                 class="form-control"
                 type="text"
                 value="<%= campground.description %> "
-                name="description"
+                name="campground[description]"
               />
             </div>
             <div class="form-group">

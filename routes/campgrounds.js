@@ -68,9 +68,18 @@ router.get("/:id/edit", function (req, res) {
     }
   });
 });
-routerapp.put("/:id", (req, res) => {
+router.put("/:id", (req, res) => {
   // find and update the correct campground
-  Campground.findByIdAndUpdate();
+  Campground.findByIdAndUpdate(req.params.id, req.body.campground, function (
+    err,
+    updatedCampground
+  ) {
+    if (err) {
+      res.redirect("/campgrounds");
+    } else {
+      res.redirect("/campgrounds/" + req.params.id);
+    }
+  });
 });
 // UPDATE CAMPGROUND ROUTE
 
