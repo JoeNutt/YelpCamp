@@ -7,7 +7,7 @@ const express = require("express"),
   methodOverride = require("method-override"),
   User = require("./models/user"),
   seedDB = require("./seeds");
-//seedDB();
+seedDB();
 const commentRoutes = require("./routes/comments"),
   campgroundRoutes = require("./routes/campgrounds"),
   indexRoutes = require("./routes/index");
@@ -21,7 +21,9 @@ mongoose
   .catch((error) => console.log(error.message));
 
 app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 // PASSPORT CONFIGURATION
 app.use(
   require("express-session")({
@@ -30,6 +32,7 @@ app.use(
     saveUninitialized: false,
   })
 );
+app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(passport.initialize());
 app.use(passport.session());
