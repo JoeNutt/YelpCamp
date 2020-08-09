@@ -7,7 +7,7 @@ const express = require("express"),
   methodOverride = require("method-override"),
   User = require("./models/user"),
   seedDB = require("./seeds");
-seedDB();
+//seedDB();
 const commentRoutes = require("./routes/comments"),
   campgroundRoutes = require("./routes/campgrounds"),
   indexRoutes = require("./routes/index");
