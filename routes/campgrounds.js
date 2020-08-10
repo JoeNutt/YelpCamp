@@ -32,11 +32,11 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
   }
   var newCampground = {
     name: name,
-    price: price,
     image: image,
+    price: price,
     description: desc,
     author: author
-  }
+  };
   // Create a new campground and save to DB
   Campground.create(newCampground, function (err, newlyCreated) {
     if (err) {
